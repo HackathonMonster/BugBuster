@@ -1,10 +1,10 @@
 package jp.android.bugsbuster;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 
 import javax.microedition.khronos.opengles.GL10;
-
-import android.content.Context;
 
 public class Obstacle extends Object {
 	
@@ -33,25 +33,25 @@ public class Obstacle extends Object {
 
 	}
 
-	   boolean contains(int x){
-	      for(int i=0; i<originalSet.size(); i++){
-	        if(originalSet.get(i).equals(x)){
-	           return true;
-	        }
-	      }
-	      return false;
-	   }
-	    
-	   boolean objeAdd(int x){
-	      if(contains(x)){
-	         return false; 
-	      }else{
-	       originalSet.add(x); 
-	      }
-	      return true;
-	   }
-	   
-	   int getSize(){
+    public boolean contains(int x) {
+        for (int i = 0; i < originalSet.size(); i++) {
+            if (originalSet.get(i).equals(x)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean objeAdd(int x) {
+        if (contains(x)) {
+            return false;
+        } else {
+            originalSet.add(x);
+        }
+        return true;
+    }
+
+    public int getSize(){
 	     return originalSet.size();
 	   }
 }

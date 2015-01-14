@@ -1,4 +1,4 @@
-package jp.android.bugsbuster;
+package jp.android.bugsbuster.game_model;
 
 import java.util.ArrayList;
 
@@ -6,6 +6,10 @@ import javax.microedition.khronos.opengles.GL10;
 
 import android.content.Context;
 
+import jp.android.bugsbuster.*;
+import jp.android.bugsbuster.processing.PImage;
+import jp.android.bugsbuster.processing.Vector2D;
+import jp.android.bugsbuster.scene.SceneGame;
 
 
 public class Bridge extends PImage {
@@ -13,9 +17,9 @@ public class Bridge extends PImage {
 	private ArrayList<Vector2D> position = new ArrayList<Vector2D>();
 	private  int nMax = 0;
 
-	Bridge()
+	public Bridge()
 	{
-		super(Object.LAYER_0);
+		super(jp.android.bugsbuster.Object.LAYER_0);
 	}
 
 	public void loadTexture(GL10 gl, Context context) {
@@ -30,7 +34,7 @@ public class Bridge extends PImage {
 	}
 	
 
-	//•`‰æ(ƒŒƒ“ƒ_[ƒ‰[ƒXƒŒƒbƒh“à‚É“Ç‚İ‚Ü‚È‚«‚áI)
+	//ï¿½`ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½[ï¿½ï¿½ï¿½[ï¿½Xï¿½ï¿½ï¿½bï¿½hï¿½ï¿½ï¿½É“Ç‚İï¿½ï¿½Ü‚È‚ï¿½ï¿½ï¿½I)
 	@Override
     public void draw(GL10 gl){
 
@@ -47,16 +51,16 @@ public class Bridge extends PImage {
         image.setTexture(gl, 0, 0, 1, 1);
         //////////////////////////////
         
-        // ƒ|ƒŠƒSƒ“‚Ì•`‰æ
+        // ï¿½|ï¿½ï¿½ï¿½Sï¿½ï¿½ï¿½Ì•`ï¿½ï¿½
         for(int i=0; (i<nMax) && (i<position.size());i++)		
         {
             Vector2D pos = position.get(i);
             
             if(pos != null)
             {
-                //  ƒ‚ƒfƒ‹ƒrƒ…[s—ñ‚Ìw’è
+                //  ï¿½ï¿½ï¿½fï¿½ï¿½ï¿½rï¿½ï¿½ï¿½[ï¿½sï¿½ï¿½Ìwï¿½ï¿½
                 gl.glMatrixMode(GL10.GL_MODELVIEW);
-                //  À•W‚Ì‰Šú‰»
+                //  ï¿½ï¿½ï¿½Wï¿½Ìï¿½ï¿½ï¿½
                 gl.glLoadIdentity();
 
             	gl.glTranslatef(pos.x/GLESRenderer.SCREEN_WIDTH*2, 
@@ -68,8 +72,8 @@ public class Bridge extends PImage {
 	
 				if(vtxFloatBuffer != null)
 				{
-	            	gl.glVertexPointer(3, GL10.GL_FLOAT, 0, vtxFloatBuffer);	// ’¸“_ƒoƒbƒtƒ@‚ğOpen GL‚É•R•t‚¯
-	            	gl.glDrawArrays(GL10.GL_TRIANGLE_STRIP, 0, 4);	// •`‰æ‚·‚é
+	            	gl.glVertexPointer(3, GL10.GL_FLOAT, 0, vtxFloatBuffer);	// ï¿½ï¿½ï¿½_ï¿½oï¿½bï¿½tï¿½@ï¿½ï¿½Open GLï¿½É•Rï¿½tï¿½ï¿½
+	            	gl.glDrawArrays(GL10.GL_TRIANGLE_STRIP, 0, 4);	// ï¿½`ï¿½æ‚·ï¿½ï¿½
 				}
             }
 			

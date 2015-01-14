@@ -1,6 +1,10 @@
-package jp.android.bugsbuster;
+package jp.android.bugsbuster.game_model;
 
-public class Ant extends PImage{
+import jp.android.bugsbuster.AnimationInfo;
+import jp.android.bugsbuster.GLESRenderer;
+import jp.android.bugsbuster.processing.PImage;
+
+public class Ant extends PImage {
 	
 	  final int START_POS_X = (int)(50);
 	  final int START_POS_Y = (int)(50);

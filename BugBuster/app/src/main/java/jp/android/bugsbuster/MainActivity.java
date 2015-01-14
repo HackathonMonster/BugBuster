@@ -1,22 +1,19 @@
 /**
-* ƒƒCƒ“ƒAƒNƒeƒBƒrƒeƒBƒNƒ‰ƒX
+* ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½Aï¿½Nï¿½eï¿½Bï¿½rï¿½eï¿½Bï¿½Nï¿½ï¿½ï¿½X
 * @author WISITKARD WILASINEE
 */
 package jp.android.bugsbuster;
 
-import android.os.Bundle;
 import android.app.Activity;
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
+import android.os.Bundle;
 
-public class MainActivity extends Activity implements 
-SensorEventListener {
+import jp.android.bugsbuster.processing.Text;
+import jp.android.bugsbuster.scene.SceneManger;
 
-	//ƒTƒEƒ“ƒh
+public class MainActivity extends Activity {
+
+	//ï¿½Tï¿½Eï¿½ï¿½ï¿½h
 	public static Activity activity;
 
 	public static MainThread thread;
@@ -28,47 +25,43 @@ SensorEventListener {
 	//
 	public static SaveData data;
 	
-	//ƒTƒEƒ“ƒh
+	//ï¿½Tï¿½Eï¿½ï¿½ï¿½h
 	//public static SoundManager sound;
 			
 	//option
 	public final boolean RUN_IN_BACKGROUND = false;
 
-	//ƒZƒ“ƒT[(‰¼)
-	static public float[] mAccCoor = new float[3]; 
-	static public float[] mGyroCoor = new float[3]; 
-	
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         
-        //‰æ–Ê‚Ì‰ñ“]iŒÅ’èj
+        //ï¿½ï¿½Ê‚Ì‰ï¿½]ï¿½iï¿½Å’ï¿½j
         setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        //SurfaceView‚ğ¶¬
+        //SurfaceViewï¿½ğ¶ï¿½
         mGLView = new MainView(this);
         
-        //renderer‚ğ¶¬
+        //rendererï¿½ğ¶ï¿½
         mRenderer = new GLESRenderer(mGLView.getContext());
         
         mGLView.setRenderer(mRenderer);
         
-        //©•ª‚Ìsurface‚Éİ’è
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½surfaceï¿½Éİ’ï¿½
         setContentView(mGLView);
         
-        //ƒ}ƒlƒWƒƒ[‰Šú‰»
+        //ï¿½}ï¿½lï¿½Wï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½
         SceneManger.init(mGLView.getContext());
      	
         SoundManager.InitSound(this);
 		
-		//‰ß‹‚Ìƒf[ƒ^“Ç‚İ‚Ş
+		//ï¿½ß‹ï¿½ï¿½Ìƒfï¿½[ï¿½^ï¿½Ç‚İï¿½ï¿½ï¿½
         data = new SaveData(mGLView.getContext());
         SaveData.InitAllRecords();
         data.loadRecords();
 
         
-        //ƒAƒNƒeƒBƒrƒeƒBƒCƒ“ƒXƒ^ƒ“ƒX
+        //ï¿½Aï¿½Nï¿½eï¿½Bï¿½rï¿½eï¿½Bï¿½Cï¿½ï¿½ï¿½Xï¿½^ï¿½ï¿½ï¿½X
         activity = this;
         
 
@@ -77,7 +70,7 @@ SensorEventListener {
         
     }
     
-    //ÄŠJ
+    //ï¿½ÄŠJ
     @Override
     protected void onPause() {
 
@@ -89,14 +82,14 @@ SensorEventListener {
         }
 
         
-        //ƒŠƒ[ƒh
+        //ï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½h
         Text.unloadFontTexture();
         
         SoundManager.pause(true);
         
     }
 
-    //ˆê’â~iAPP‚©‚ç—£‚ê‚éj
+    //ï¿½êï¿½ï¿½~ï¿½iAPPï¿½ï¿½ï¿½ç—£ï¿½ï¿½ï¿½j
     @Override
     protected void onResume() {
 
@@ -112,48 +105,22 @@ SensorEventListener {
     }
 
 
-    //backƒ{ƒ^ƒ“
+    //backï¿½{ï¿½^ï¿½ï¿½
     protected void onDestroy() {
 
         super.onDestroy();
         
         SoundManager.stopAllSound();
 
-		//‰ß‹‚Ìƒf[ƒ^‘‚«‚Ş
+		//ï¿½ß‹ï¿½ï¿½Ìƒfï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         //saveRecord();
         
-        //ƒTƒEƒ“ƒh’â~
+        //ï¿½Tï¿½Eï¿½ï¿½ï¿½hï¿½ï¿½~
         //sound.stop();
     //  mSoundManager.ReleaseSound();
 
-		// ƒŠƒ\[ƒX‚ªƒŠ[ƒN‚µA—áŠO”­¶‚µ‚È‚¢ˆ’uB
+		// ï¿½ï¿½ï¿½\ï¿½[ï¿½Xï¿½ï¿½ï¿½ï¿½ï¿½[ï¿½Nï¿½ï¿½ï¿½Aï¿½ï¿½Oï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½uï¿½B
 		thread.release();
     }
-    
-    
-      
-	@Override
-	public void onAccuracyChanged(Sensor sensor, int accuracy) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void onSensorChanged(SensorEvent event) {
-
-		//sensor.UpdateSensor(event);
-		if(event.sensor.getType()==Sensor.TYPE_GYROSCOPE){
-			mGyroCoor[0] = event.values[0];
-			mGyroCoor[1] = event.values[1];
-			mGyroCoor[2] = event.values[2];
-		}
-
-		// check sensor type
-		if(event.sensor.getType()==Sensor.TYPE_ACCELEROMETER){
-			mAccCoor[0] = event.values[0];
-			mAccCoor[1] = event.values[1];
-			mAccCoor[2] = event.values[2];
-		}
-	}
 
 }

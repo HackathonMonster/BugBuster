@@ -1,19 +1,23 @@
-package jp.android.bugsbuster;
-
-import javax.microedition.khronos.opengles.GL10;
+package jp.android.bugsbuster.scene;
 
 import android.content.Context;
 import android.view.MotionEvent;
 
-public class SceneResult  implements Scene {
+import javax.microedition.khronos.opengles.GL10;
 
-		static boolean win =false;
-		static int score = 0;
-  
+import jp.android.bugsbuster.GLESRenderer;
+import jp.android.bugsbuster.Input;
+import jp.android.bugsbuster.R;
+import jp.android.bugsbuster.Scene;
+import jp.android.bugsbuster.SoundManager;
+import jp.android.bugsbuster.processing.PImage;
+import jp.android.bugsbuster.processing.Text;
+
+public class SceneCredit  implements Scene {
+	
 		String WORD = "TAP to CONTINUE";
 		PImage img = new PImage();
 		Text mWord;
-		Text mScoreWord;
 		int a;
 		int aDir;	
 		int counter;
@@ -21,20 +25,14 @@ public class SceneResult  implements Scene {
 		 public void init(){
 		      a = 255;
 		      aDir = -1;
-		      counter = 1200;
+		      counter = 300;
 		      
 		      mWord = new Text(WORD.length());
-		      mScoreWord = new Text(32);
 		      
+		      GLESRenderer.setBackdropColor(0, 0, 0);
 
-		      if(win){
-		    	  SoundManager.playBGM(SoundManager.SOUND_ID_BGM_CLEAR);
-		      }else{
-		    	  SoundManager.playBGM(SoundManager.SOUND_ID_BGM_OVER);
-		      }    
-		      
-		     SaveData.AddRecords(score);
-		      
+				img.init((int)GLESRenderer.SCREEN_WIDTH/2, (int)GLESRenderer.SCREEN_HEIGHT/2,
+						(int)GLESRenderer.SCREEN_WIDTH, (int)GLESRenderer.SCREEN_HEIGHT);
 		  }
 		  
 		 
@@ -43,7 +41,7 @@ public class SceneResult  implements Scene {
 		    if(Input.isMouseTrigger())
 		    {
 		    	SoundManager.playSound(SoundManager.SOUND_ID_SFX_OK);
-		    	SceneManger.changeMode(SceneManger.MODE_CREDIT);
+		    	SceneManger.changeMode(SceneManger.MODE_LOGO);
 		    }
 		    
 		    if(counter > 0)
@@ -52,7 +50,7 @@ public class SceneResult  implements Scene {
 		    }
 		    else
 		    {
-		    	SceneManger.changeMode(SceneManger.MODE_RANKING);
+		    	SceneManger.changeMode(SceneManger.MODE_LOGO);
 		    }
 		    
 		    a += aDir*5;
@@ -62,19 +60,11 @@ public class SceneResult  implements Scene {
 		      aDir = -aDir;
 		    }
 		    
-
-			img.init((int)GLESRenderer.SCREEN_WIDTH/2, (int)GLESRenderer.SCREEN_HEIGHT/2,
-					(int)GLESRenderer.SCREEN_WIDTH, (int)GLESRenderer.SCREEN_HEIGHT);
-		    
 		    //TAP to START
 		    mWord.setColor(35,26,26,a);
 
 		    mWord.print(WORD, (int)GLESRenderer.SCREEN_WIDTH/2, 9*(int)GLESRenderer.SCREEN_HEIGHT/10);
 
-
-		    mScoreWord.setColor(65,18,18,255);
-		    mScoreWord.setTextSize(40, 80);
-		    mScoreWord.print("Score:"+score,(int)(GLESRenderer.SCREEN_WIDTH/2),(int)(GLESRenderer.SCREEN_HEIGHT/7*3));
 		}
 		  
 
@@ -97,15 +87,7 @@ public class SceneResult  implements Scene {
 
 		@Override
 		public void loadTexture(GL10 gl, Context context) {
-
-		    if(win){
-		    	img.loadTexture(gl, context, R.drawable.clear);
-		    }
-		    else {
-		    	img.loadTexture(gl, context, R.drawable.gameover);
-		    }
-			
-			
+			img.loadTexture(gl, context, R.drawable.credit);
 		}
 
 
@@ -121,11 +103,6 @@ public class SceneResult  implements Scene {
 			// TODO Auto-generated method stub
 			
 		}
-			
-
-		public static void setResult(boolean win2,int score2){
-		    win=win2;
-		    score=score2;
-		}
+				
 }
 		    

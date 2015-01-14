@@ -1,6 +1,6 @@
 /**
 
-* ƒeƒLƒXƒg•\Ž¦ƒNƒ‰ƒX
+* ï¿½eï¿½Lï¿½Xï¿½gï¿½\ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½X
 
 * @author WISITKARD WILASINEE
 
@@ -10,14 +10,18 @@
          
 *         WISITKARD WILASINEE
 
-*         ‹K‘¥‚É‚¨‚¯‚é‰ü‘¢
+*         ï¿½Kï¿½ï¿½ï¿½É‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 */
-package jp.android.bugsbuster;
+package jp.android.bugsbuster.processing;
+
+import android.content.Context;
 
 import javax.microedition.khronos.opengles.GL10;
 
-import android.content.Context;
+import jp.android.bugsbuster.R;
+import jp.android.bugsbuster.Texture;
+import jp.android.bugsbuster.color;
 
 public class Text {
 	
@@ -29,11 +33,11 @@ public class Text {
 	private color mColor = new color(255,255,255,255);
 	private int mPosX = 0;
 	private int mPosY = 0;
-	private int mWidth = 20;			// ƒtƒHƒ“ƒgƒTƒCƒY
-	private int mHeight = 40;			// ƒtƒHƒ“ƒgƒTƒCƒY
+	private int mWidth = 20;			// ï¿½tï¿½Hï¿½ï¿½ï¿½gï¿½Tï¿½Cï¿½Y
+	private int mHeight = 40;			// ï¿½tï¿½Hï¿½ï¿½ï¿½gï¿½Tï¿½Cï¿½Y
 	private static boolean mLoadTexture = false;	
 	
-	private String mText = ""; 			// •`‰æ‚·‚é•¶Žš—ñ
+	private String mText = ""; 			// ï¿½`ï¿½æ‚·ï¿½é•¶ï¿½ï¿½ï¿½ï¿½
 	  
 	static private Texture images = new Texture();
 
@@ -60,14 +64,14 @@ public class Text {
 		
 		for(int i=0; i<max_num;i++)
 		{
-			mPolygon[i] = new PImage(Object.LAYER_3);
+			mPolygon[i] = new PImage(jp.android.bugsbuster.Object.LAYER_3);
 			mPolygon[i].init(-mWidth, -mHeight, mWidth, mHeight);
 			mPolygon[i].setColor(mColor);
 			mPolygon[i].image.setTexture(images.textures);
 		};	
 	}
 
-    //FÝ’è
+    //ï¿½Fï¿½Ý’ï¿½
     public void setColor(int r, int g, int b, int a)
 	{
     	mColor.setColor(r,g,b,a);
@@ -80,7 +84,7 @@ public class Text {
 		print(str, x, y);
 	}
 	
-	void print(String str, int x, int y)
+	public void print(String str, int x, int y)
 	{
 		mText = str;
 		mPosX = x;

@@ -1,6 +1,6 @@
 /**
 
-* 2Dƒ|ƒŠƒSƒ“ƒNƒ‰ƒX
+* 2Dï¿½|ï¿½ï¿½ï¿½Sï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½X
 
 * @author WISITKARD WILASINEE
 
@@ -10,10 +10,10 @@
          
 *         WISITKARD WILASINEE
 
-*         ‹K‘¥‚É‚¨‚¯‚é‰ü‘¢
+*         ï¿½Kï¿½ï¿½ï¿½É‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 */
-package jp.android.bugsbuster;
+package jp.android.bugsbuster.processing;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -23,7 +23,9 @@ import javax.microedition.khronos.opengles.GL10;
 
 import android.content.Context;
 
-public class PImage extends Object {
+import jp.android.bugsbuster.*;
+
+public class PImage extends jp.android.bugsbuster.Object {
 
     protected int mPosX   = 0;
     protected int mPosY   = 0;
@@ -41,7 +43,7 @@ public class PImage extends Object {
     public int getSizeX(){return mSizeX;}
     public int getSizeY(){return mSizeY;}
 
-    protected FloatBuffer vtxFloatBuffer = null;	//’¸“_ƒoƒbƒtƒ@
+    protected FloatBuffer vtxFloatBuffer = null;	//ï¿½ï¿½ï¿½_ï¿½oï¿½bï¿½tï¿½@
     protected ByteBuffer byteBuffer = null;
 
     public void apply()
@@ -58,7 +60,7 @@ public class PImage extends Object {
         
 
         float[] vertex = {
-        		//X Y Z  (Z‡)
+        		//X Y Z  (Zï¿½ï¿½)
         		(float) (-half_sizeX*cos_val)-(half_sizeY*sin_val), (float) (-half_sizeX*sin_val)+(half_sizeY*cos_val),   
         		(float) ( half_sizeX*cos_val)-(half_sizeY*sin_val), (float) ( half_sizeX*sin_val)+(half_sizeY*cos_val), 
         		(float) (-half_sizeX*cos_val)-(-half_sizeY*sin_val), (float) (-half_sizeX*sin_val)+(-half_sizeY*cos_val), 
@@ -67,7 +69,7 @@ public class PImage extends Object {
 
         float[] vertices = //vertex;
         {
-        		//X Y Z  (Z‡)
+        		//X Y Z  (Zï¿½ï¿½)
         		(-1+posX+(vertex[0]/(float)GLESRenderer.SCREEN_WIDTH*2.f)), (-1+posY+(vertex[1]/(float)GLESRenderer.SCREEN_HEIGHT*2.f)),    	0.0f,
         		(-1+posX+(vertex[2]/(float)GLESRenderer.SCREEN_WIDTH*2.f)), (-1+posY+(vertex[3]/(float)GLESRenderer.SCREEN_HEIGHT*2.f)),    	0.0f,
         		(-1+posX+(vertex[4]/(float)GLESRenderer.SCREEN_WIDTH*2.f)), (-1+posY+(vertex[5]/(float)GLESRenderer.SCREEN_HEIGHT*2.f)),    	0.0f,
@@ -79,7 +81,7 @@ public class PImage extends Object {
 /*
         float[] vertices = //vertex;
         {
-        	//X Y Z  (Z‡)
+        	//X Y Z  (Zï¿½ï¿½)
             	-half_sizeX/(float)GLESRenderer.SCREEN_WIDTH*2.f,  half_sizeY/(float)GLESRenderer.SCREEN_HEIGHT*2.f, 0,
             	 half_sizeX/(float)GLESRenderer.SCREEN_WIDTH*2.f,  half_sizeY/(float)GLESRenderer.SCREEN_HEIGHT*2.f, 0,
             	-half_sizeX/(float)GLESRenderer.SCREEN_WIDTH*2.f, -half_sizeY/(float)GLESRenderer.SCREEN_HEIGHT*2.f, 0,
@@ -90,7 +92,7 @@ public class PImage extends Object {
         /*
         float[] vertices = //vertex;
         {
-        		//X Y Z  (Z‡)
+        		//X Y Z  (Zï¿½ï¿½)
         		(-1+(-half_sizeX/(float)GLESRenderer.SCREEN_WIDTH*2.f)), (-1+(half_sizeY/(float)GLESRenderer.SCREEN_HEIGHT*2.f)),    	0.0f,
         		(-1+(half_sizeX/(float)GLESRenderer.SCREEN_WIDTH*2.f)), (-1+(half_sizeY/(float)GLESRenderer.SCREEN_HEIGHT*2.f)),    	0.0f,
         		(-1+(-half_sizeX/(float)GLESRenderer.SCREEN_WIDTH*2.f)), (-1+(-half_sizeY/(float)GLESRenderer.SCREEN_HEIGHT*2.f)),    	0.0f,
@@ -100,7 +102,7 @@ public class PImage extends Object {
         */
         if(byteBuffer != null)
         {
-	        // Java => OpenGL ‚É‚ ‚½‚Á‚Ä‚Ì•ÏŠ·
+	        // Java => OpenGL ï¿½É‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚Ì•ÏŠï¿½
 	        vtxFloatBuffer = byteBuffer.asFloatBuffer();
 	
 	        vtxFloatBuffer.put(vertices);
@@ -108,7 +110,7 @@ public class PImage extends Object {
         }
     }
     
-    //•`‰æ(ƒŒƒ“ƒ_[ƒ‰[ƒXƒŒƒbƒh“à‚É“Ç‚İ‚Ü‚È‚«‚áI)
+    //ï¿½`ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½[ï¿½ï¿½ï¿½[ï¿½Xï¿½ï¿½ï¿½bï¿½hï¿½ï¿½ï¿½É“Ç‚İï¿½ï¿½Ü‚È‚ï¿½ï¿½ï¿½I)
     public void draw(GL10 gl){
 
     	if(mShow == false)
@@ -124,15 +126,15 @@ public class PImage extends Object {
         image.setTexture(gl, 0, 0, 1, 1);
         //////////////////////////////
         
-        // ƒ|ƒŠƒSƒ“‚Ì•`‰æ
+        // ï¿½|ï¿½ï¿½ï¿½Sï¿½ï¿½ï¿½Ì•`ï¿½ï¿½
         {
 
-            //  ƒ‚ƒfƒ‹ƒrƒ…[s—ñ‚Ìw’è
+            //  ï¿½ï¿½ï¿½fï¿½ï¿½ï¿½rï¿½ï¿½ï¿½[ï¿½sï¿½ï¿½Ìwï¿½ï¿½
             gl.glMatrixMode(GL10.GL_MODELVIEW);
-            //  À•W‚Ì‰Šú‰»
+            //  ï¿½ï¿½ï¿½Wï¿½Ìï¿½ï¿½ï¿½
             gl.glLoadIdentity();
 
-            //  ‰ñ“]
+            //  ï¿½ï¿½]
             //gl.glRotatef(mRotate_x, 0, 1, 0);
             //gl.glRotatef(mRotate_y, 1, 0, 0);
            /* 
@@ -144,14 +146,14 @@ public class PImage extends Object {
 
 			if(vtxFloatBuffer != null)
 			{
-            	gl.glVertexPointer(3, GL10.GL_FLOAT, 0, vtxFloatBuffer);	// ’¸“_ƒoƒbƒtƒ@‚ğOpen GL‚É•R•t‚¯
-            	gl.glDrawArrays(GL10.GL_TRIANGLE_STRIP, 0, 4);	// •`‰æ‚·‚é
+            	gl.glVertexPointer(3, GL10.GL_FLOAT, 0, vtxFloatBuffer);	// ï¿½ï¿½ï¿½_ï¿½oï¿½bï¿½tï¿½@ï¿½ï¿½Open GLï¿½É•Rï¿½tï¿½ï¿½
+            	gl.glDrawArrays(GL10.GL_TRIANGLE_STRIP, 0, 4);	// ï¿½`ï¿½æ‚·ï¿½ï¿½
 			}
         }
         
 
     }
-    //ƒRƒ“ƒXƒgƒ‰ƒNƒ^[
+    //ï¿½Rï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½Nï¿½^ï¿½[
     public PImage(String string, int i)
     {
 
@@ -165,18 +167,18 @@ public class PImage extends Object {
 
 	}
 	
-	//Fİ’è
+	//ï¿½Fï¿½İ’ï¿½
     public void setColor(int r, int g, int b, int a)
 	{
     	mColor.setColor(r,g,b,a);
     }
 
-    //Fİ’è
+    //ï¿½Fï¿½İ’ï¿½
     public void setColor(color color){
     	mColor = color;
     }
 
-	// ƒXƒP[ƒ‹•ÏXi’Ç‰Áj
+	// ï¿½Xï¿½Pï¿½[ï¿½ï¿½ï¿½ÏXï¿½iï¿½Ç‰ï¿½ï¿½j
 	public void setScl( float sclX, float sclY )
 	{
 		mSclX = sclX;
@@ -184,7 +186,7 @@ public class PImage extends Object {
 	}
 	
 	
-    //‰Šú‰»
+    //ï¿½ï¿½ï¿½ï¿½
     public void init(int posX, int posY, int sizeX, int sizeY){
     	mPosX = posX;
     	mPosY = posY;
@@ -197,37 +199,37 @@ public class PImage extends Object {
     	apply();
     }
 
-    //ƒeƒNƒXƒ`ƒƒ‚Ìƒ^ƒCƒ‹(ŒJ‚è•Ô‚µ‰ñ”)İ’è
+    //ï¿½eï¿½Nï¿½Xï¿½`ï¿½ï¿½ï¿½Ìƒ^ï¿½Cï¿½ï¿½(ï¿½Jï¿½ï¿½Ô‚ï¿½ï¿½ï¿½)ï¿½İ’ï¿½
 	public void setTile(float x, float y)
 	{
 		image.setTile(x, y);
 	}
 
-    //ƒeƒNƒXƒ`ƒƒ‚Ìƒ^ƒCƒ‹(ŒJ‚è•Ô‚µ‰ñ”)‚ÆƒIƒtƒZƒbƒg(ƒXƒNƒ[ƒ‹)İ’è
+    //ï¿½eï¿½Nï¿½Xï¿½`ï¿½ï¿½ï¿½Ìƒ^ï¿½Cï¿½ï¿½(ï¿½Jï¿½ï¿½Ô‚ï¿½ï¿½ï¿½)ï¿½ÆƒIï¿½tï¿½Zï¿½bï¿½g(ï¿½Xï¿½Nï¿½ï¿½ï¿½[ï¿½ï¿½)ï¿½İ’ï¿½
 	public void setTile(float x, float y, float offset_x, float offset_y)
 	{
 		image.setTile(x, y, offset_x, offset_y);		
 	}
 	
-    //ƒeƒNƒXƒ`ƒƒ‚ÌƒIƒtƒZƒbƒg(ƒXƒNƒ[ƒ‹)İ’è
+    //ï¿½eï¿½Nï¿½Xï¿½`ï¿½ï¿½ï¿½ÌƒIï¿½tï¿½Zï¿½bï¿½g(ï¿½Xï¿½Nï¿½ï¿½ï¿½[ï¿½ï¿½)ï¿½İ’ï¿½
 	public void setOffset(float offset_x, float offset_y)
 	{
 		image.setOffset(offset_x, offset_y);		
 	}
 
-    //‰ñ“]Šp“xiZ²jİ’è
+    //ï¿½ï¿½]ï¿½pï¿½xï¿½iZï¿½ï¿½ï¿½jï¿½İ’ï¿½
 	public void setAngle(float angle)
 	{
 		mAngle = angle;
 	}
 	
-    //•`‰æƒtƒ‰ƒOİ’è
+    //ï¿½`ï¿½ï¿½tï¿½ï¿½ï¿½Oï¿½İ’ï¿½
 	public void setShow(boolean flag)
 	{
 		mShow = flag;
 	}
 
-	//ƒeƒNƒXƒ`ƒƒ‚ÌƒŠƒ\[ƒX‚©‚ç“Ç‚İ‚Ş
+	//ï¿½eï¿½Nï¿½Xï¿½`ï¿½ï¿½ï¿½Ìƒï¿½ï¿½\ï¿½[ï¿½Xï¿½ï¿½ï¿½ï¿½Ç‚İï¿½ï¿½ï¿½
     public void loadTexture(GL10 gl, Context context, int id)
     {
 
@@ -235,31 +237,31 @@ public class PImage extends Object {
     	    	
     }
 
-	//ƒeƒNƒXƒ`ƒƒ‚Ìƒ|ƒCƒ“ƒ^İ’è
+	//ï¿½eï¿½Nï¿½Xï¿½`ï¿½ï¿½ï¿½Ìƒ|ï¿½Cï¿½ï¿½ï¿½^ï¿½İ’ï¿½
     public void setTexture(Texture texture)
     {
     	image = texture;
     }
 
 
-    //XV
+    //ï¿½Xï¿½V
     public void update(){
 
     	//apply();
     }
     
-    //I—¹
+    //ï¿½Iï¿½ï¿½
     public void uninit(){
     }
     
-    //ˆÊ’uİ’è
+    //ï¿½Ê’uï¿½İ’ï¿½
     public void setPosition( int fPosX, int fPosY ){
 
         mPosX = fPosX;
         mPosY = fPosY;
 	}
 
-    //Ä‰Šú‰»
+    //ï¿½Äï¿½ï¿½ï¿½
 	@Override
 	public void reset() {
 		mSclX = 1.0f;
@@ -267,7 +269,7 @@ public class PImage extends Object {
 	}
 
 
-	boolean isHit(int x, int y)
+	public boolean isHit(int x, int y)
 	{
 		int start_x = (int) (mPosX-(mSizeX/2.f));
 		int start_y = (int) (mPosY-(mSizeY/2.f));

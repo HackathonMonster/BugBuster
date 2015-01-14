@@ -1,9 +1,17 @@
-package jp.android.bugsbuster;
+package jp.android.bugsbuster.scene;
 
 import javax.microedition.khronos.opengles.GL10;
 
 import android.content.Context;
 import android.view.MotionEvent;
+
+import jp.android.bugsbuster.GLESRenderer;
+import jp.android.bugsbuster.Input;
+import jp.android.bugsbuster.R;
+import jp.android.bugsbuster.Scene;
+import jp.android.bugsbuster.SoundManager;
+import jp.android.bugsbuster.processing.PImage;
+import jp.android.bugsbuster.processing.Text;
 
 public class SceneTutorial  implements Scene {
 	
@@ -48,7 +56,7 @@ public class SceneTutorial  implements Scene {
 		    }
 		    
 
-			img.init((int)GLESRenderer.SCREEN_WIDTH/2, 
+			img.init((int) GLESRenderer.SCREEN_WIDTH/2,
 					(int)GLESRenderer.SCREEN_HEIGHT/2,
 					(int)GLESRenderer.SCREEN_WIDTH, 
 					(int)GLESRenderer.SCREEN_HEIGHT);

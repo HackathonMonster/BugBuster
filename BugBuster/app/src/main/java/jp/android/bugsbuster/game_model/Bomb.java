@@ -1,8 +1,14 @@
-package jp.android.bugsbuster;
+package jp.android.bugsbuster.game_model;
+
+import android.content.Context;
 
 import javax.microedition.khronos.opengles.GL10;
 
-import android.content.Context;
+import jp.android.bugsbuster.GLESRenderer;
+import jp.android.bugsbuster.R;
+import jp.android.bugsbuster.scene.SceneGame;
+import jp.android.bugsbuster.processing.Animation;
+import jp.android.bugsbuster.processing.PImage;
 
 public class Bomb extends PImage {
 
@@ -19,8 +25,8 @@ public class Bomb extends PImage {
 	   private int expCount=0;
 	   
 	   
-	   Bomb(){
-		   super(Object.LAYER_2);
+	   public Bomb(){
+		   super(jp.android.bugsbuster.Object.LAYER_2);
 		   
 	      expCount=0;
 	      explosion=false;
@@ -37,23 +43,23 @@ public class Bomb extends PImage {
 		}
 
 
-		   void setGridPosition(float x,float y){
+		   public void setGridPosition(float x, float y){
 		      this.x=x;
 		      this.y=y;
 		   }
-		   float getX(){
+		   public float getX(){
 		     return this.x;
 		   }
-		   float getY(){
+		   public float getY(){
 		     return this.y;
 		   }
 		   
 		   
-		   void setAppear(boolean appear){
+		   public void setAppear(boolean appear){
 		     this.appear = appear;
 		   }
 		   
-		   boolean getAppear(){
+		   public boolean getAppear(){
 		      return appear;
 		   }
 		   
@@ -102,11 +108,11 @@ public class Bomb extends PImage {
 					       }
 				        //////////////////////////////
 				        
-				        // ƒ|ƒŠƒSƒ“‚Ì•`‰æ
+				        // ï¿½|ï¿½ï¿½ï¿½Sï¿½ï¿½ï¿½Ì•`ï¿½ï¿½
 				
-				        //  ƒ‚ƒfƒ‹ƒrƒ…[s—ñ‚Ìw’è
+				        //  ï¿½ï¿½ï¿½fï¿½ï¿½ï¿½rï¿½ï¿½ï¿½[ï¿½sï¿½ï¿½Ìwï¿½ï¿½
 				        gl.glMatrixMode(GL10.GL_MODELVIEW);
-				        //  À•W‚Ì‰Šú‰»
+				        //  ï¿½ï¿½ï¿½Wï¿½Ìï¿½ï¿½ï¿½
 				        gl.glLoadIdentity();
 				        
 				
@@ -123,8 +129,8 @@ public class Bomb extends PImage {
 				
 						if(vtxFloatBuffer != null)
 						{
-				        	gl.glVertexPointer(3, GL10.GL_FLOAT, 0, vtxFloatBuffer);	// ’¸“_ƒoƒbƒtƒ@‚ğOpen GL‚É•R•t‚¯
-				        	gl.glDrawArrays(GL10.GL_TRIANGLE_STRIP, 0, 4);	// •`‰æ‚·‚é
+				        	gl.glVertexPointer(3, GL10.GL_FLOAT, 0, vtxFloatBuffer);	// ï¿½ï¿½ï¿½_ï¿½oï¿½bï¿½tï¿½@ï¿½ï¿½Open GLï¿½É•Rï¿½tï¿½ï¿½
+				        	gl.glDrawArrays(GL10.GL_TRIANGLE_STRIP, 0, 4);	// ï¿½`ï¿½æ‚·ï¿½ï¿½
 						}
 		}
 	}
@@ -138,7 +144,7 @@ public class Bomb extends PImage {
 	}
 	
 
-	   void setEnemyDie(boolean enemyDie){
+	   public void setEnemyDie(boolean enemyDie){
 	       this.enemyDie=enemyDie;
 	   }
 	   
@@ -146,7 +152,7 @@ public class Bomb extends PImage {
 	      return enemyDie;
 	   }
 	   
-	   void setExplosion(boolean explosion){
+	   public void setExplosion(boolean explosion){
 	       this.explosion=explosion;
 	   }
 	   

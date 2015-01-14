@@ -1,6 +1,6 @@
 /**
 
-* ƒAƒjƒŠÇ—ƒNƒ‰ƒX
+* ï¿½Aï¿½jï¿½ï¿½ï¿½Ç—ï¿½ï¿½Nï¿½ï¿½ï¿½X
 
 * @author WISITKARD WILASINEE
 
@@ -10,45 +10,47 @@
          
 *         WISITKARD WILASINEE
 
-*         ‹K‘¥‚É‚¨‚¯‚é‰ü‘¢
+*         ï¿½Kï¿½ï¿½ï¿½É‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 */
 package jp.android.bugsbuster;
+
+import jp.android.bugsbuster.processing.PImage;
 
 public class AnimationInfo {
 
 	enum ANIM_TYPE
 	{
-		STILL,			//ÃŽ~
-		LOOP,			//ƒ‹[ƒv
-		ONCE,			//ˆê‰ñ
-		REVERSE,		//ˆê‰ñ(‹t)
-		REVERSE_LOOP,	//ƒ‹[ƒv(‹t)
-		TWOWAY_LOOP		//‰¨Œã¨‰iroundj
+		STILL,			//ï¿½ÃŽ~
+		LOOP,			//ï¿½ï¿½ï¿½[ï¿½v
+		ONCE,			//ï¿½ï¿½ï¿½
+		REVERSE,		//ï¿½ï¿½ï¿½(ï¿½t)
+		REVERSE_LOOP,	//ï¿½ï¿½ï¿½[ï¿½v(ï¿½t)
+		TWOWAY_LOOP		//ï¿½ï¿½ï¿½ï¿½ï¿½ã¨ï¿½ï¿½ï¿½iroundï¿½j
 	};
 
-	//ƒAƒjƒ‚Ìî•ñ
-	private int m_nFrame = 1;							//Œ»ÝƒtƒŒ[ƒ€
-	private int m_nMaxFrame = 1;						//Å‘åƒtƒŒ[ƒ€”
-	private int m_nMaxFrameX = 1;						//Å‘åƒtƒŒ[ƒ€”(XÀ•W)
-	private int m_nMaxFrameY = 1;						//Å‘åƒtƒŒ[ƒ€”(YÀ•W)
+	//ï¿½Aï¿½jï¿½ï¿½ï¿½Ìï¿½ï¿½
+	private int m_nFrame = 1;							//ï¿½ï¿½ï¿½Ýƒtï¿½ï¿½ï¿½[ï¿½ï¿½
+	private int m_nMaxFrame = 1;						//ï¿½Å‘ï¿½tï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½
+	private int m_nMaxFrameX = 1;						//ï¿½Å‘ï¿½tï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½(Xï¿½ï¿½ï¿½W)
+	private int m_nMaxFrameY = 1;						//ï¿½Å‘ï¿½tï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½(Yï¿½ï¿½ï¿½W)
 	
-	//ƒAƒjƒî•ñ
-	private boolean m_bStart = false;					//Ä¶ƒtƒ‰ƒO
-	private int m_nSpeed = 20;							//Ä¶‘¬“x(ƒtƒŒ[ƒ€’PˆÊ) 
+	//ï¿½Aï¿½jï¿½ï¿½ï¿½ï¿½ï¿½
+	private boolean m_bStart = false;					//ï¿½Äï¿½ï¿½tï¿½ï¿½ï¿½O
+	private int m_nSpeed = 20;							//ï¿½Äï¿½ï¿½ï¿½ï¿½x(ï¿½tï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Pï¿½ï¿½) 
 	
-	private int m_nCounter = 0;							//ƒJƒEƒ“ƒ^[
-	private int m_nStartFrame = 0;						//Ä¶ƒXƒ^[ƒgƒtƒŒ[ƒ€
-	private int m_nPlayFrame = 1;						//Ä¶ƒGƒ“ƒhƒtƒŒ[ƒ€
+	private int m_nCounter = 0;							//ï¿½Jï¿½Eï¿½ï¿½ï¿½^ï¿½[
+	private int m_nStartFrame = 0;						//ï¿½Äï¿½ï¿½Xï¿½^ï¿½[ï¿½gï¿½tï¿½ï¿½ï¿½[ï¿½ï¿½
+	private int m_nPlayFrame = 1;						//ï¿½Äï¿½ï¿½Gï¿½ï¿½ï¿½hï¿½tï¿½ï¿½ï¿½[ï¿½ï¿½
 	
-	private ANIM_TYPE m_nAnimType = AnimationInfo.ANIM_TYPE.LOOP;	//ŒJ‚è•Ô‚µ•û
-	private int m_nAnimDirect = 1;						//ŒJ‚è•Ô‚µ•ûŒü
+	private ANIM_TYPE m_nAnimType = AnimationInfo.ANIM_TYPE.LOOP;	//ï¿½Jï¿½ï¿½Ô‚ï¿½ï¿½ï¿½
+	private int m_nAnimDirect = 1;						//ï¿½Jï¿½ï¿½Ô‚ï¿½ï¿½ï¿½ï¿½
 	
 
-	//Šî–{‚ÌŠÖ”
+	//ï¿½ï¿½{ï¿½ÌŠÖï¿½
 	public void init(int nFrame, int nMaxX, int nMaxY)
 	{
-		//‰Šú‰»
+		//ï¿½ï¿½ï¿½ï¿½
 		m_nCounter = 0;
 		m_nStartFrame = 0;
 		m_nPlayFrame = m_nMaxFrame;
@@ -63,7 +65,7 @@ public class AnimationInfo {
 	public void reset()
 	{
 
-		//‰Šú‰»
+		//ï¿½ï¿½ï¿½ï¿½
 		m_nCounter = 0;
 		
 	}
@@ -72,11 +74,11 @@ public class AnimationInfo {
 	{
 		
 		//===============================//
-		// ƒAƒjƒ‚ÌXV					 //
+		// ï¿½Aï¿½jï¿½ï¿½ï¿½ÌXï¿½V					 //
 		//===============================//
 		if(m_bStart)
 		{	
-			//ƒtƒŒ[ƒ€‚ª‚ ‚éê‡
+			//ï¿½tï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‡
 			if(m_nMaxFrame > 1)
 			{
 				m_nCounter++;
@@ -142,7 +144,7 @@ public class AnimationInfo {
 				}		
 			}
 
-			////Œ»Ý‚ÌƒtƒŒ[ƒ€‚ÉÝ’è
+			////ï¿½ï¿½ï¿½Ý‚Ìƒtï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ÉÝ’ï¿½
 			//setTextureUV(m_nFrame);
 		}
 
@@ -157,7 +159,7 @@ public class AnimationInfo {
 			m_nStartFrame = nStart;
 			m_nPlayFrame = nFrame;
 
-			//”ÍˆÍƒ`ƒFƒbƒN
+			//ï¿½ÍˆÍƒ`ï¿½Fï¿½bï¿½N
 			if(m_nStartFrame >= m_nMaxFrame)
 			{
 				m_nStartFrame = m_nMaxFrame-1;

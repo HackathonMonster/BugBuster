@@ -1,6 +1,6 @@
 /**
 
-* ƒV[ƒ“ƒ}ƒl[ƒWƒƒ[
+* ï¿½Vï¿½[ï¿½ï¿½ï¿½}ï¿½lï¿½[ï¿½Wï¿½ï¿½ï¿½[
 
 * @author WISITKARD WILASINEE
 
@@ -10,15 +10,19 @@
          
 *         WISITKARD WILASINEE
 
-*         ‹K‘¥‚É‚¨‚¯‚é‰ü‘¢
+*         ï¿½Kï¿½ï¿½ï¿½É‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 */
-package jp.android.bugsbuster;
-
-import javax.microedition.khronos.opengles.GL10;
+package jp.android.bugsbuster.scene;
 
 import android.content.Context;
 import android.view.MotionEvent;
+
+import javax.microedition.khronos.opengles.GL10;
+
+import jp.android.bugsbuster.*;
+import jp.android.bugsbuster.Object;
+import jp.android.bugsbuster.processing.Text;
 
 public class SceneManger{
 
@@ -41,11 +45,11 @@ public class SceneManger{
 	public static boolean mChange = false;
 	public static boolean mReloadedTexture = false;
 	
-	//‰Šú‰»‚ÉŒÄ‚Î‚ê‚é
+	//ï¿½ï¿½ï¿½ï¿½ÉŒÄ‚Î‚ï¿½ï¿½
 	static public void init(Context context) {		
 		GLESRenderer.setBackdropColor(0, 0, 0);
 
-		//‰Šú‰»
+		//ï¿½ï¿½ï¿½ï¿½
 		mNow = -1;
 		mNext = 0;
 		mScene = null;
@@ -53,8 +57,8 @@ public class SceneManger{
 		mChange = false;
 		mContext = context;
 
-		//ƒIƒuƒWƒFƒNƒgƒŠƒXƒg‰Šú‰»
-		Object.initList();
+		//ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½ï¿½
+		jp.android.bugsbuster.Object.initList();
 		
 		Input.init();
 				
@@ -68,7 +72,7 @@ public class SceneManger{
 		mTransition.setAlpha(255);
 	}
 
-	//‰Šú‰»‚ÉŒÄ‚Î‚ê‚é
+	//ï¿½ï¿½ï¿½ï¿½ÉŒÄ‚Î‚ï¿½ï¿½
 	static public void changeMode(int stage) {		
 		
 		if((!mChange) && (mNow != stage))
@@ -81,7 +85,7 @@ public class SceneManger{
 		}
 	}
 
-	//XV‚ÉŒÄ‚Î‚ê‚é
+	//ï¿½Xï¿½Vï¿½ï¿½ï¿½ÉŒÄ‚Î‚ï¿½ï¿½
 	static public void update()
 	{
 		Input.upadate();
@@ -97,7 +101,7 @@ public class SceneManger{
 
 					synchronized (Object.lock)
 					{
-						//ƒIƒuƒWƒFƒNƒgƒŠƒXƒgƒNƒŠƒA
+						//ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ï¿½ï¿½Xï¿½gï¿½Nï¿½ï¿½ï¿½A
 						Object.clearList();
 						
 						switch(mNow)
@@ -151,7 +155,7 @@ public class SceneManger{
 			
 		}
 		
-		//ƒV[ƒ“‚ÌXV
+		//ï¿½Vï¿½[ï¿½ï¿½ï¿½ÌXï¿½V
 		else if(mScene != null)
 		{
 			synchronized (Object.lock)
@@ -162,7 +166,7 @@ public class SceneManger{
 		
 		synchronized (Object.lock)
 		{
-		//ƒIƒuƒWƒFƒNƒgƒŠƒXƒgXV
+		//ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ï¿½ï¿½Xï¿½gï¿½Xï¿½V
 		Object.updateList();
 		}
 	}
@@ -172,7 +176,7 @@ public class SceneManger{
 		mReloadedTexture = false;
 	}
 	
-	//•`‰æ‚ÉŒÄ‚Î‚ê‚é
+	//ï¿½`ï¿½æï¿½ÉŒÄ‚Î‚ï¿½ï¿½
 	static public void draw(GL10 gl)
 	{
 		
@@ -180,17 +184,17 @@ public class SceneManger{
 		{
 			if(!mReloadedTexture)
 			{
-				//ƒV[ƒ“‚Ì‰Šú‰»
+				//ï¿½Vï¿½[ï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½
 				loadTexture(gl, mContext);
 				mReloadedTexture = true;
 				
 				Text.loadFontTexture(gl, mContext);
 			}
 	
-			//ƒIƒuƒWƒFƒNƒgƒŠƒXƒg•`‰æ
+			//ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ï¿½ï¿½Xï¿½gï¿½`ï¿½ï¿½
 			Object.drawList(gl);
 			
-			//ƒV[ƒ“‚Ì•`‰æ
+			//ï¿½Vï¿½[ï¿½ï¿½ï¿½Ì•`ï¿½ï¿½
 			mScene.draw(gl);
 		}
 
@@ -201,7 +205,7 @@ public class SceneManger{
 
 	}
 	
-	//ƒ^ƒbƒ`‚ÉŒÄ‚Î‚ê‚é
+	//ï¿½^ï¿½bï¿½`ï¿½ï¿½ï¿½ÉŒÄ‚Î‚ï¿½ï¿½
 	static public void updateInput(MotionEvent event)
 	{        
 		Input.upadate(event);
@@ -220,7 +224,7 @@ public class SceneManger{
 		}
 		
 
-		//ƒtƒHƒ“ƒg
+		//ï¿½tï¿½Hï¿½ï¿½ï¿½g
 		Text.loadFontTexture(gl, mContext);
 
 	}

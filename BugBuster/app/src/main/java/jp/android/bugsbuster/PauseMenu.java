@@ -1,6 +1,6 @@
 /**
 
-* ƒ‰ƒ“ƒjƒ“ƒO’†‚Ìƒƒjƒ…[ŠÇ—
+* ï¿½ï¿½ï¿½ï¿½ï¿½jï¿½ï¿½ï¿½Oï¿½ï¿½ï¿½Ìƒï¿½ï¿½jï¿½ï¿½ï¿½[ï¿½Ç—ï¿½
 
 * @author WISITKARD WILASINEE
 
@@ -10,7 +10,7 @@
          
 *         WISITKARD WILASINEE
 
-*         ‹K‘¥‚É‚¨‚¯‚é‰ü‘¢
+*         ï¿½Kï¿½ï¿½ï¿½É‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 */
 package jp.android.bugsbuster;
@@ -18,6 +18,8 @@ package jp.android.bugsbuster;
 import javax.microedition.khronos.opengles.GL10;
 
 import android.content.Context;
+
+import jp.android.bugsbuster.processing.PImage;
 
 
 public class PauseMenu {
@@ -59,7 +61,7 @@ public class PauseMenu {
 	private boolean[] mPress = new boolean[MAX_BUTTON];
 	private boolean mPause = false;
 	
-	// ƒfƒoƒbƒOƒƒjƒ…[
+	// ï¿½fï¿½oï¿½bï¿½Oï¿½ï¿½ï¿½jï¿½ï¿½ï¿½[
 	private Button mDebug = null;
 
 	public PauseMenu()
@@ -112,7 +114,7 @@ public class PauseMenu {
 		}
 	}
 	
-	//ƒeƒNƒXƒ`ƒƒ‚ÌƒŠƒ\[ƒX‚©‚ç“Ç‚İ‚Ş
+	//ï¿½eï¿½Nï¿½Xï¿½`ï¿½ï¿½ï¿½Ìƒï¿½ï¿½\ï¿½[ï¿½Xï¿½ï¿½ï¿½ï¿½Ç‚İï¿½ï¿½ï¿½
     public void loadTexture(GL10 gl, Context context )
     {
     	for(int i=0; i<MAX_BUTTON; i++)

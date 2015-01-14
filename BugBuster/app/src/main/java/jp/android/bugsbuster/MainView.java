@@ -1,6 +1,6 @@
 /**
 
-* ƒƒCƒ“ƒrƒ…[
+* ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½rï¿½ï¿½ï¿½[
 
 * @author WISITKARD WILASINEE
 
@@ -10,7 +10,7 @@
          
 *         WISITKARD WILASINEE
 
-*         ‹K‘¥‚É‚¨‚¯‚é‰ü‘¢
+*         ï¿½Kï¿½ï¿½ï¿½É‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 */
 package jp.android.bugsbuster;
@@ -18,6 +18,8 @@ package jp.android.bugsbuster;
 import android.content.Context;
 import android.opengl.GLSurfaceView;
 import android.view.MotionEvent;
+
+import jp.android.bugsbuster.scene.SceneManger;
 
 public class MainView extends GLSurfaceView {
 	
@@ -27,7 +29,7 @@ public class MainView extends GLSurfaceView {
 		
 	}
 
-	//ƒ^ƒbƒ`‚ÉŒÄ‚Î‚ê‚é
+	//ï¿½^ï¿½bï¿½`ï¿½ï¿½ï¿½ÉŒÄ‚Î‚ï¿½ï¿½
 	@Override
 	public boolean onTouchEvent(MotionEvent event)
 	{

@@ -1,8 +1,10 @@
-package jp.android.bugsbuster;
+package jp.android.bugsbuster.processing;
+
+import jp.android.bugsbuster.AnimationInfo;
 
 public class Animation extends PImage {
 
-	  AnimationInfo anim = new AnimationInfo();
+	  public AnimationInfo anim = new AnimationInfo();
 
 
 	    public Animation() {
@@ -13,7 +15,7 @@ public class Animation extends PImage {
 			super(layer);
 		}
 	    
-	    //èâä˙âª
+	    //ÔøΩÔøΩÔøΩÔøΩ
 	    public void init(int posX, int posY, int sizeX, int sizeY,
 	    				 int maxX, int maxY, int maxFrame, int frame){
 	    	anim.init(frame, maxX, maxY);

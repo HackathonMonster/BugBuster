@@ -1,6 +1,6 @@
 /**
 
-* ƒ`[ƒ€ƒƒS•\¦ƒV[ƒ“
+* ï¿½`ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Sï¿½\ï¿½ï¿½ï¿½Vï¿½[ï¿½ï¿½
 
 * @author WISITKARD WILASINEE
 
@@ -10,15 +10,22 @@
          
 *         WISITKARD WILASINEE
 
-*         ‹K‘¥‚É‚¨‚¯‚é‰ü‘¢
+*         ï¿½Kï¿½ï¿½ï¿½É‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 */
-package jp.android.bugsbuster;
+package jp.android.bugsbuster.scene;
 
 import javax.microedition.khronos.opengles.GL10;
 
 import android.content.Context;
 import android.view.MotionEvent;
+
+import jp.android.bugsbuster.GLESRenderer;
+import jp.android.bugsbuster.Input;
+import jp.android.bugsbuster.ResourceConst;
+import jp.android.bugsbuster.Scene;
+import jp.android.bugsbuster.SoundManager;
+import jp.android.bugsbuster.processing.PImage;
 
 
 public class SceneLogo implements Scene {
@@ -29,12 +36,12 @@ public class SceneLogo implements Scene {
 	@Override
 	public void init() {
 		mPolygon = new PImage();
-		mPolygon.init(	(int)GLESRenderer.SCREEN_WIDTH/2, 
+		mPolygon.init(	(int) GLESRenderer.SCREEN_WIDTH/2,
 						(int)GLESRenderer.SCREEN_HEIGHT/2,
 						650, 300);
 
 	    
-		//”wŒi‚ÌF
+		//ï¿½wï¿½iï¿½ÌF
 		GLESRenderer.setBackdropColor(255,255,255);
 		
 

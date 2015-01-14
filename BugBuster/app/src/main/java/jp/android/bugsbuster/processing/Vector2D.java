@@ -1,4 +1,4 @@
-package jp.android.bugsbuster;
+package jp.android.bugsbuster.processing;
 
 public class Vector2D {
 

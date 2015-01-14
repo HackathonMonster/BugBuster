@@ -1,6 +1,6 @@
 /**
 
-* ƒeƒNƒXƒ`ƒƒ[ƒNƒ‰ƒX
+* ï¿½eï¿½Nï¿½Xï¿½`ï¿½ï¿½ï¿½[ï¿½Nï¿½ï¿½ï¿½X
 
 * @author WISITKARD WILASINEE
 
@@ -10,7 +10,7 @@
          
 *         WISITKARD WILASINEE
 
-*         ‹K‘¥‚É‚¨‚¯‚é‰ü‘¢
+*         ï¿½Kï¿½ï¿½ï¿½É‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 */
 package jp.android.bugsbuster;
@@ -37,8 +37,8 @@ public class Texture {
 			1.0f, 1.0f		// top right	(V4)
 	};
 	/** The texture pointer */
-	int[] textures = new int[1];
-	
+    public int[] textures = new int[1];
+
 	public Texture()
 	{
 		ByteBuffer byteBuffer = ByteBuffer.allocateDirect(texture.length * 4);
@@ -110,7 +110,7 @@ public class Texture {
 	
 	public void setTexture(GL10 gl, float startU, float startV, float endU, float endV)
 	{
-		//ƒeƒNƒXƒ`ƒƒ‹@”\ON
+		//ï¿½eï¿½Nï¿½Xï¿½`ï¿½ï¿½ï¿½@ï¿½\ON
 		gl.glEnable(GL10.GL_TEXTURE_2D);
 
 		gl.glDisable(GL10.GL_DEPTH_TEST);

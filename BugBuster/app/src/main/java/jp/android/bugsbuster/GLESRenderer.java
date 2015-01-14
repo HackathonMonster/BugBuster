@@ -1,5 +1,5 @@
 /**
-* OpenGLESƒŒƒ“ƒ_ƒ‰[
+* OpenGLESï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½[
 
 * @author WISITKARD WILASINEE
 
@@ -9,7 +9,7 @@
          
 *         WISITKARD WILASINEE
 
-*         ‹K‘¥‚É‚¨‚¯‚é‰ü‘¢
+*         ï¿½Kï¿½ï¿½ï¿½É‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 */
 package jp.android.bugsbuster;
@@ -22,15 +22,17 @@ import javax.microedition.khronos.opengles.GL10;
 
 import android.opengl.GLSurfaceView;
 
+import jp.android.bugsbuster.scene.SceneManger;
+
 public class GLESRenderer implements GLSurfaceView.Renderer {
 
 	//RGBA
 	private static color mBackdropColor;		
-	public static int SCREEN_SIZE_X  = 800;						//’[––‚É‚æ‚é‚ÌƒTƒCƒY
-	public static int SCREEN_SIZE_Y  = 1280;					//’[––‚É‚æ‚é‚ÌƒTƒCƒY
+	public static int SCREEN_SIZE_X  = 800;						//ï¿½[ï¿½ï¿½ï¿½É‚ï¿½ï¿½ÌƒTï¿½Cï¿½Y
+	public static int SCREEN_SIZE_Y  = 1280;					//ï¿½[ï¿½ï¿½ï¿½É‚ï¿½ï¿½ÌƒTï¿½Cï¿½Y
 	public static float SCREEN_SCALE  = 1.0f;
-	public static float SCREEN_WIDTH  = 720.f;//750.0f;					//•W€‚ÌƒTƒCƒY(for fullscreen)
-	public static float SCREEN_HEIGHT = 960.f;//1024.0f;				//•W€‚ÌƒTƒCƒY(for fullscreen)
+	public static float SCREEN_WIDTH  = 720.f;//750.0f;					//ï¿½Wï¿½ï¿½ï¿½ÌƒTï¿½Cï¿½Y(for fullscreen)
+	public static float SCREEN_HEIGHT = 960.f;//1024.0f;				//ï¿½Wï¿½ï¿½ï¿½ÌƒTï¿½Cï¿½Y(for fullscreen)
 	public static float SCREEN_RATIO = (SCREEN_SIZE_X/SCREEN_WIDTH);
 
 	public static Context mContext;
@@ -39,11 +41,11 @@ public class GLESRenderer implements GLSurfaceView.Renderer {
 		mContext = context;		
 		mBackdropColor = new color();
 		
-		//‰Šú‰»
+		//ï¿½ï¿½ï¿½ï¿½
 		mBackdropColor.setColor(0, 0, 0, 255);
 	}
 	
-	// ”wŒi‚ÌFİ’è
+	// ï¿½wï¿½iï¿½ÌFï¿½İ’ï¿½
 	public static void setBackdropColor(int r, int g, int b) {
 		mBackdropColor.setColor(r, g, b, 255);
 	}
@@ -51,10 +53,10 @@ public class GLESRenderer implements GLSurfaceView.Renderer {
 	@Override
 	public void onSurfaceCreated(GL10 gl, EGLConfig config) {
 
-        //  À•W‚Ì‰Šú‰»
+        //  ï¿½ï¿½ï¿½Wï¿½Ìï¿½ï¿½ï¿½
         gl.glLoadIdentity();
 		
-		//ƒV[ƒ“‚Ì‰Šú‰»
+		//ï¿½Vï¿½[ï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½
     	SceneManger.loadTexture(gl, mContext);
     }
 	
@@ -65,20 +67,20 @@ public class GLESRenderer implements GLSurfaceView.Renderer {
 		
 		SCREEN_SCALE = SCREEN_WIDTH/SCREEN_SIZE_X;
 		
-		// ‰æ–ÊƒTƒCƒYXV
+		// ï¿½ï¿½ÊƒTï¿½Cï¿½Yï¿½Xï¿½V
         gl.glViewport(0, 0, width, height);
 		
 
-		// ‰æ–Ê‚Ìc‰¡”ä—¦
+		// ï¿½ï¿½Ê‚Ìcï¿½ï¿½ï¿½ä—¦
 		float ratio = (float) width / height;
 
-        //  ƒ‚ƒfƒ‹ƒrƒ…[s—ñ‚Ìw’è
+        //  ï¿½ï¿½ï¿½fï¿½ï¿½ï¿½rï¿½ï¿½ï¿½[ï¿½sï¿½ï¿½Ìwï¿½ï¿½
         gl.glMatrixMode(GL10.GL_MODELVIEW);
 
-        //  À•W‚Ì‰Šú‰»
+        //  ï¿½ï¿½ï¿½Wï¿½Ìï¿½ï¿½ï¿½
         gl.glLoadIdentity();
         
-        //  ‰æŠp‚Ìİ’è(left,right,bottom,top,near,far)
+        //  ï¿½ï¿½pï¿½Ìİ’ï¿½(left,right,bottom,top,near,far)
         gl.glFrustumf(-ratio, ratio, -1, 1, 1, 1000);
               
 	}
@@ -98,11 +100,11 @@ public class GLESRenderer implements GLSurfaceView.Renderer {
 	        
 	        gl.glDisable( GL10.GL_DEPTH_TEST );
 	        
-	        //2D•`‰æ‚½‚ß
+	        //2Dï¿½`ï¿½æ‚½ï¿½ï¿½
 			gl.glDisable(GL10.GL_LIGHTING);
 				
 	
-		    //ƒV[ƒ“‚Ì•`‰æ		
+		    //ï¿½Vï¿½[ï¿½ï¿½ï¿½Ì•`ï¿½ï¿½		
 			SceneManger.draw(gl);	
     	
 		}

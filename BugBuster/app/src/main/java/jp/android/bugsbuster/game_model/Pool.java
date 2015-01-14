@@ -1,9 +1,12 @@
-package jp.android.bugsbuster;
+package jp.android.bugsbuster.game_model;
 
 import java.util.ArrayList;
 
 import javax.microedition.khronos.opengles.GL10;
 
+import jp.android.bugsbuster.*;
+import jp.android.bugsbuster.processing.PImage;
+import jp.android.bugsbuster.processing.Vector2D;
 
 
 public class Pool extends PImage {
@@ -12,9 +15,9 @@ public class Pool extends PImage {
 	private ArrayList<Vector2D> position = new ArrayList<Vector2D>();
 	private  int nMax = 0;
 	
-	Pool()
+	public Pool()
 	{
-		super(Object.LAYER_0);
+		super(jp.android.bugsbuster.Object.LAYER_0);
 	}
 	
 	public void init()
@@ -25,7 +28,7 @@ public class Pool extends PImage {
 	}
 	
 
-	//•`‰æ(ƒŒƒ“ƒ_[ƒ‰[ƒXƒŒƒbƒh“à‚É“Ç‚İ‚Ü‚È‚«‚áI)
+	//ï¿½`ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½_ï¿½[ï¿½ï¿½ï¿½[ï¿½Xï¿½ï¿½ï¿½bï¿½hï¿½ï¿½ï¿½É“Ç‚İï¿½ï¿½Ü‚È‚ï¿½ï¿½ï¿½I)
 	@Override
     public void draw(GL10 gl){
 
@@ -43,7 +46,7 @@ public class Pool extends PImage {
         image.setTexture(gl, 0, 0, 1, 1);
         //////////////////////////////
         
-        // ƒ|ƒŠƒSƒ“‚Ì•`‰æ
+        // ï¿½|ï¿½ï¿½ï¿½Sï¿½ï¿½ï¿½Ì•`ï¿½ï¿½
         for(int i=0; (i<nMax*4) && (i<position.size());i+=4)		
         {   
             Vector2D pos0 = position.get(i);
@@ -53,15 +56,15 @@ public class Pool extends PImage {
             
             	if((pos0 != null) && (pos1 != null) && (pos2 != null) && (pos3 != null))
 	           {
-	                //  ƒ‚ƒfƒ‹ƒrƒ…[s—ñ‚Ìw’è
+	                //  ï¿½ï¿½ï¿½fï¿½ï¿½ï¿½rï¿½ï¿½ï¿½[ï¿½sï¿½ï¿½Ìwï¿½ï¿½
 	                gl.glMatrixMode(GL10.GL_MODELVIEW);
-	                //  À•W‚Ì‰Šú‰»
+	                //  ï¿½ï¿½ï¿½Wï¿½Ìï¿½ï¿½ï¿½
 	                gl.glLoadIdentity();
 	
 	                
 	                float[] vertices = //vertex;
 	                {
-	                		//X Y Z  (Z‡)
+	                		//X Y Z  (Zï¿½ï¿½)
 	                		(-1+(pos0.x/(float)GLESRenderer.SCREEN_WIDTH*2.f)), (-1+(pos0.y/(float)GLESRenderer.SCREEN_HEIGHT*2.f)),    	0.0f,
 	                		(-1+(pos1.x/(float)GLESRenderer.SCREEN_WIDTH*2.f)), (-1+(pos1.y/(float)GLESRenderer.SCREEN_HEIGHT*2.f)),    	0.0f,
 	                		(-1+(pos2.x/(float)GLESRenderer.SCREEN_WIDTH*2.f)), (-1+(pos2.y/(float)GLESRenderer.SCREEN_HEIGHT*2.f)),    	0.0f,
@@ -71,7 +74,7 @@ public class Pool extends PImage {
 	                
 	                if(byteBuffer != null)
 	                {
-	        	        // Java => OpenGL ‚É‚ ‚½‚Á‚Ä‚Ì•ÏŠ·
+	        	        // Java => OpenGL ï¿½É‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚Ì•ÏŠï¿½
 	        	        vtxFloatBuffer = byteBuffer.asFloatBuffer();
 	        	
 	        	        vtxFloatBuffer.put(vertices);
@@ -82,8 +85,8 @@ public class Pool extends PImage {
 		
 					if(vtxFloatBuffer != null)
 					{
-		            	gl.glVertexPointer(3, GL10.GL_FLOAT, 0, vtxFloatBuffer);	// ’¸“_ƒoƒbƒtƒ@‚ğOpen GL‚É•R•t‚¯
-		            	gl.glDrawArrays(GL10.GL_TRIANGLE_STRIP, 0, 4);	// •`‰æ‚·‚é
+		            	gl.glVertexPointer(3, GL10.GL_FLOAT, 0, vtxFloatBuffer);	// ï¿½ï¿½ï¿½_ï¿½oï¿½bï¿½tï¿½@ï¿½ï¿½Open GLï¿½É•Rï¿½tï¿½ï¿½
+		            	gl.glDrawArrays(GL10.GL_TRIANGLE_STRIP, 0, 4);	// ï¿½`ï¿½æ‚·ï¿½ï¿½
 					}
 	            }
 	        
@@ -93,7 +96,7 @@ public class Pool extends PImage {
 
 	public void addPosition(int x1, int y1,int x2, int y2,int x3, int y3,int x4, int y4)
 	{
-		//Z‡
+		//Zï¿½ï¿½
 		position.add(new Vector2D(x1,(int)GLESRenderer.SCREEN_HEIGHT-y1));
 		position.add(new Vector2D(x2,(int)GLESRenderer.SCREEN_HEIGHT-y2));
 		position.add(new Vector2D(x4,(int)GLESRenderer.SCREEN_HEIGHT-y4));

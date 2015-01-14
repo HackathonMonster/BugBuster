@@ -1,6 +1,6 @@
 /**
 
-* ƒ{ƒ^ƒ“ƒNƒ‰ƒX
+* ï¿½{ï¿½^ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½X
 
 * @author WISITKARD WILASINEE
 
@@ -10,10 +10,12 @@
          
 *         WISITKARD WILASINEE
 
-*         ‹K‘¥‚É‚¨‚¯‚é‰ü‘¢
+*         ï¿½Kï¿½ï¿½ï¿½É‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 */
 package jp.android.bugsbuster;
+
+import jp.android.bugsbuster.processing.PImage;
 
 public class Button extends PImage {
 

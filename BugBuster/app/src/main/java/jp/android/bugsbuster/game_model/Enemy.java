@@ -1,10 +1,18 @@
-package jp.android.bugsbuster;
+package jp.android.bugsbuster.game_model;
+
+import android.content.Context;
 
 import java.util.Random;
 
 import javax.microedition.khronos.opengles.GL10;
 
-import android.content.Context;
+import jp.android.bugsbuster.Bar;
+import jp.android.bugsbuster.GLESRenderer;
+import jp.android.bugsbuster.R;
+import jp.android.bugsbuster.scene.SceneGame;
+import jp.android.bugsbuster.Texture;
+import jp.android.bugsbuster.processing.Animation;
+import jp.android.bugsbuster.processing.PImage;
 
 public class Enemy extends PImage {
 
@@ -19,7 +27,7 @@ public class Enemy extends PImage {
 	public final static int ENEMY_PATTERN_DANGORO 		= 7;
 	public final static int MAX_ENEMY_PATTERN 			= 8;
 	static Animation[] enemy_pattern;
-	Animation dieEffect;
+	public Animation dieEffect;
 
 	final int MAX_HP[] = {
 		100, 	//ENEMY_PATTERN_RED_ANT 	
@@ -49,18 +57,18 @@ public class Enemy extends PImage {
 	  private int dieFrame=0;
 	  private int bomb = -1;
 	  
-	  Enemy()
+	  public Enemy()
 	  {
 		  super(LAYER_1);
 		  super.init(0, 0, SceneGame.msw, SceneGame.msh);
 
 		  dieEffect = new Animation(); //8		
-		  dieEffect.setLayer(Object.LAYER_2);
+		  dieEffect.setLayer(jp.android.bugsbuster.Object.LAYER_2);
 		  dieEffect.init(0,0,60,60,4,2,8,7);
 		  dieEffect.setPlaySpeed(3);
 	  }
 
-  void setType(int type,int x,int y){
+  public void setType(int type, int x, int y){
 	  
     switch(type){
       //red_ant
@@ -280,41 +288,41 @@ void setX(float x){
   void setY(float y){
     this.y = y;
   }
-  float getX(){
+  public float getX(){
     return this.x;
   }
-  float getY(){
+  public float getY(){
     return this.y;
   }
-  void updHP(float dmg){
+  public void updHP(float dmg){
     this.hp-=dmg*0.1;
   }
   void setHP(int hp){
 	    this.hp=hp;
   }
-  int getHP(){
+  public int getHP(){
     return (int)this.hp;
   }
-  int getScore(){
+  public int getScore(){
     return score;
   }
-  void setArrivalFlg(boolean flg){
+  public void setArrivalFlg(boolean flg){
 	    this.arrivalFlg=flg;
 	  }
-	  boolean getArrivalFlg(){
+	  public boolean getArrivalFlg(){
 	    return arrivalFlg;
 	  }
 	  
 	  
-	  void setBomb(int bomb){
+	  public void setBomb(int bomb){
 	    this.bomb = bomb;
 	  }
-	  int getBomb(){
+	  public int getBomb(){
 	    return bomb;
 	  }
   
   //die effect
-  void drawDieStart(float pos_x,float pos_y){
+  public void drawDieStart(float pos_x, float pos_y){
       dieEffect.play(0,0,false);
       dieEffect.play(0,8,false);
 
@@ -324,7 +332,7 @@ void setX(float x){
   	
   }
   
-  void setdieFlg(){
+  public void setdieFlg(){
     setX(-1);
     setY(-1);
     hp = 0;
@@ -332,7 +340,7 @@ void setX(float x){
     starFlg = false;
   }
   
-  boolean getdieFlg(){
+  public boolean getdieFlg(){
     return this.dieFlg;
   }
   

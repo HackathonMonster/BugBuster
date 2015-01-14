@@ -1,5 +1,7 @@
 package jp.android.bugsbuster;
 
+import jp.android.bugsbuster.processing.PImage;
+
 public class Bar {
 
 	  final color FOREGROUND_MAX = new color(0,255,0);
@@ -23,7 +25,7 @@ public class Bar {
 	  float scale;
 
 	  // The Constructor is defined with arguments.
-	  Bar(int max) { 
+      public Bar(int max) {
 	    c = FOREGROUND_MAX;
 	    xpos = 0;
 	    ypos = 0;
@@ -35,7 +37,7 @@ public class Bar {
 	    mValueImage.init(0, 0, 100, 1);
 	  }
 
-	  void resetHP(int max)
+	  public void resetHP(int max)
 	  {
 	    maxHP = max;
 	    HP = maxHP;
@@ -46,16 +48,16 @@ public class Bar {
 	    mValueImage.apply();
 	  }  
 	  
-	  void setHP(int showHP, 
-	             float showX, 
-	             float showY)
+	  public void setHP(int showHP,
+                        float showX,
+                        float showY)
 	  {
 	    xpos = showX;
 	    ypos = showY;
 	    nextHP = showHP;
 	  }
 	  
-	  void update() {
+	  public void update() {
 	    
 	    //slowly decreasing
 	    float diff = nextHP-HP;

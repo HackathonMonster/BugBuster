@@ -1,9 +1,19 @@
-package jp.android.bugsbuster;
+package jp.android.bugsbuster.scene;
 
 import javax.microedition.khronos.opengles.GL10;
 
 import android.content.Context;
 import android.view.MotionEvent;
+
+import jp.android.bugsbuster.Button;
+import jp.android.bugsbuster.GLESRenderer;
+import jp.android.bugsbuster.Input;
+import jp.android.bugsbuster.R;
+import jp.android.bugsbuster.Scene;
+import jp.android.bugsbuster.SoundManager;
+import jp.android.bugsbuster.game_model.Ant;
+import jp.android.bugsbuster.processing.PImage;
+import jp.android.bugsbuster.processing.Text;
 
 public class SceneTitle  implements Scene {
 
@@ -12,11 +22,11 @@ public class SceneTitle  implements Scene {
 	  final int TITLE_CURSOR_CREDIT = 2;
 	  final int TITLE_CURSOR_MAX = 3;
 	  
-	  PImage imgBg = new PImage();  
+	  PImage imgBg = new PImage();
 	  PImage imgTitle = new PImage(); 
 	  Ant ant = new Ant();
 	  PImage imgFrame = new PImage(); 
-	  Button[] imgTitleMenu = new Button[TITLE_CURSOR_MAX];  
+	  Button[] imgTitleMenu = new Button[TITLE_CURSOR_MAX];
 	  int counter;
 	  
 	  int a;
@@ -88,7 +98,7 @@ public class SceneTitle  implements Scene {
 
 		      mWord.print("", (int)GLESRenderer.SCREEN_WIDTH/2, 2*(int)GLESRenderer.SCREEN_HEIGHT/3);
 		    	
-			  //îwåiÇÃêF
+			  //ÔøΩwÔøΩiÔøΩÃêF
 			  GLESRenderer.setBackdropColor(0,0,0);
 				
 		      SoundManager.playBGM(SoundManager.SOUND_ID_BGM_TITLE);

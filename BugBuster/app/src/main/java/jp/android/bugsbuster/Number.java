@@ -1,6 +1,6 @@
 /**
 
-* ”Ô†‚ÌƒeƒLƒXƒgƒNƒ‰ƒX
+* ï¿½Ôï¿½ï¿½Ìƒeï¿½Lï¿½Xï¿½gï¿½Nï¿½ï¿½ï¿½X
 
 * @author WISITKARD WILASINEE
 
@@ -10,7 +10,7 @@
          
 *         WISITKARD WILASINEE
 
-*         ‹K‘¥‚É‚¨‚¯‚é‰ü‘¢
+*         ï¿½Kï¿½ï¿½ï¿½É‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 */
 package jp.android.bugsbuster;
@@ -18,6 +18,8 @@ package jp.android.bugsbuster;
 import javax.microedition.khronos.opengles.GL10;
 
 import android.content.Context;
+
+import jp.android.bugsbuster.processing.PImage;
 
 public class Number {
 	

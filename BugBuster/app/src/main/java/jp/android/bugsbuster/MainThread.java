@@ -1,5 +1,7 @@
 package jp.android.bugsbuster;
 
+import jp.android.bugsbuster.scene.SceneManger;
+
 public class MainThread extends Thread {
 
 	//FPS
@@ -25,7 +27,7 @@ public class MainThread extends Thread {
 			//handler.post(new Runnable() {public void run(){mMission.Update();}});
 			long currentTime = System.nanoTime(); 
 			
-			//FPSƒ`ƒFƒbƒNŠÔ
+			//FPSï¿½`ï¿½Fï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½
 		    if( currentTime - lastFPSTime >= (NANO_TIME)) 
 		    {
 	        	
@@ -37,10 +39,10 @@ public class MainThread extends Thread {
 		    
 		    if( currentTime - lastTime >= (NANO_TIME/FPS)) 
 		    {	        
-		    	//ŠÔXV@time syncronize
+		    	//ï¿½ï¿½ï¿½ÔXï¿½Vï¿½@time syncronize
 		        lastTime = currentTime; 
 		        
-		    	//ƒV[ƒ“‚ÌXV
+		    	//ï¿½Vï¿½[ï¿½ï¿½ï¿½ÌXï¿½V
 		    	SceneManger.update();
 
 				

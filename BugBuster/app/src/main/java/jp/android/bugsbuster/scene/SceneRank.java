@@ -1,9 +1,19 @@
-package jp.android.bugsbuster;
+package jp.android.bugsbuster.scene;
 
 import javax.microedition.khronos.opengles.GL10;
 
 import android.content.Context;
 import android.view.MotionEvent;
+
+import jp.android.bugsbuster.GLESRenderer;
+import jp.android.bugsbuster.Input;
+import jp.android.bugsbuster.MainActivity;
+import jp.android.bugsbuster.R;
+import jp.android.bugsbuster.SaveData;
+import jp.android.bugsbuster.Scene;
+import jp.android.bugsbuster.SoundManager;
+import jp.android.bugsbuster.processing.PImage;
+import jp.android.bugsbuster.processing.Text;
 
 public class SceneRank implements Scene {
 
@@ -18,7 +28,7 @@ public class SceneRank implements Scene {
 	  //kaishi suru mae ni ikkai yobu (initial)
 	  public void init()
 	  {
-		  imgBg.init((int)GLESRenderer.SCREEN_WIDTH/2, (int)GLESRenderer.SCREEN_HEIGHT/2,
+		  imgBg.init((int) GLESRenderer.SCREEN_WIDTH/2, (int)GLESRenderer.SCREEN_HEIGHT/2,
 				  (int)GLESRenderer.SCREEN_WIDTH, (int)GLESRenderer.SCREEN_HEIGHT);
 		    rank = new int[SaveData.MAX_RANKING];
 
